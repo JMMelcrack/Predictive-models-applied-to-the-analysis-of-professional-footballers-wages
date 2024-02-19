@@ -1,0 +1,75 @@
+Las características son las siguientes:
+
+Jugador: Nombre del futbolista
+Edad: Edad del jugador
+Temporada: Año en el que empieza la temporada a la que pertenecen las estadísticas.
+Posicion: Posición en la que juega, para jugadores que pueden jugar en varias se guarda todas, luego este tipo de jugador se codificará como múltiple posición, independientemente de las posiciones que sean. 
+Valor liga ini: Valor de mercado de la liga en la que el jugador empieza la temporada
+Partidos: Número de partidos jugados 
+Titularidades: Número de partidos en los que fue titular
+Minutos: Minutos totales jugados
+Goles: Goles marcados
+Asistencias: Asistencias dadas
+Goles penalti: Goles de penalti
+Penaltis lanzados: Total penaltis intentados, incluye marcados y fallados
+Amarillas: Veces amonestado con tarjeta amarilla
+Rojas: Veces amonestado con tarjeta roja
+xG: Número de goles que el jugador debería haber marcado en realidad (expected goals)
+xG sin penaltis: expected goals sin contar penaltis
+xAG: Porcentaje de gol esperado que dan las asistencias de el futbolista
+Conducciones progresivas: Conducciones hacia adelante
+Pases progresivos: Pases hacia adelante
+Pases progresivos recibidos: Pases progresivos recibidos
+Goles encajados: Goles encajados a un portero
+Disparos recibidos: Disparos a puerta en contra
+Salvadas: Paradas del portero
+Porterias a cero: Porterias a cero
+Penaltis en contra: Penaltis intentados en contra
+Penaltis encajados: Penaltis que acaban en gol
+Penaltis detenidos: Penaltis que para el portero
+Penaltis fallados (en contra): Penaltis que van fuera o al palo
+2a amarilla: Expulsiones por segunda amarilla
+Faltas cometidas: Faltas cometidas
+Faltas recibidas: Faltas recibidas
+Fueras de juego: Fueras de juego
+Balones centrados: Centros intentados
+Intercepciones: Intercepciones
+Entradas ganadas: Tackleos exitosos
+Penaltis concedidos: Penaltis provocados
+Goles en propia: Goles marcados en propia
+Recuperaciones: Balones recuperados
+Aereos ganados: Duelos aéreos ganados
+Aereos perdidos: Duelos aéreos perdidos
+Disparos: Total de disparos efectuados por el jugador
+Tiros a puerta: Disparos a puerta
+Distancia tiros: Distancia media de los tiros
+Faltas lanzadas: Faltas lanzadas
+Pases completados: Pases completados
+Pases intentados: Pases intentados
+Distancia pases: Distancia total de los pases dados
+Dist progresiva pases: Distancia total en dirección a campo rival de los pases dados
+Pases cortos completados: Pases cortos completados
+Pases cortos intentados: Pases cortos intentados
+Pases medios completados: Pases medios completados
+Pases medios intentados: Pases medios intentados
+Pases largos completados Pases largos completados
+Pases largos intentados: Pases largos intentados
+Pases clave: Pases clave dados
+Pases ultimo tercio: Pases dados en el último tercio de campo
+Pases al area: Pases completados al area de penalti
+CrAP: Centros completados al area de penalti
+Toques: Número de veces que el jugador toca el balón
+Regates intentados: Regates intentados
+Regates exitosos: Regates exitosos
+Controles: Veces que el jugador controló el balón
+Dist con balon: Distancia total de los desplazamientos del jugador con balón
+Dist progresiva: Distancia total de las conducciones progresivas del jugador
+Conducciones ultimo tercio: Conducciones que entran en el último tercio de campo
+Conducciones en area: Conducciones que entran en el área rival
+Errores de control: Errores del futbolista al controlar el balón
+Salario semanal: Variable a predecir, salario semanal en euros que cobra el futbolista
+Valor liga fin: Valor de mercado total de la liga en la que el jugador milita al final de temporada, es decir si ficha por un equipo de otra liga en verano es esa la liga que aparece.
+Posicion liga ini: Posición en la que finalizó la temporada anterior el equipo en el que juega el futbolista.
+Posicion liga fin: Posición en liga en la que queda el jugador con su equipo en la presente temporada.
+Valor equipo ini: Valor del equipo por el que ficha el jugador.
+Valor equipo fin: Valor del equipo en el que jugará el jugador en la siguiente campaña.
