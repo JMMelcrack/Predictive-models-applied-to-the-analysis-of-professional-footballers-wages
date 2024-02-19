@@ -57,7 +57,7 @@ Pases largos intentados: Pases largos intentados
 Pases clave: Pases clave dados
 Pases ultimo tercio: Pases dados en el último tercio de campo
 Pases al area: Pases completados al area de penalti
-CrAP: Centros completados al area de penalti
+Centros al area: Centros completados al area de penalti
 Toques: Número de veces que el jugador toca el balón
 Regates intentados: Regates intentados
 Regates exitosos: Regates exitosos
