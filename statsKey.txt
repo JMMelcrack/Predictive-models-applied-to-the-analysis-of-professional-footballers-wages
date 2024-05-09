@@ -69,7 +69,7 @@ Conducciones en area: Conducciones que entran en el área rival
 Errores de control: Errores del futbolista al controlar el balón
 Salario semanal: Variable a predecir, salario semanal en euros que cobra el futbolista
 Valor liga fin: Beneficio total de la liga en la que el jugador milita al final de temporada, es decir si ficha por un equipo de otra liga en verano es esa la liga que aparece, el beneficio se corresponde con el de la actual temporada.
-Posicion liga ini: Posición en la que finalizó la temporada anterior el equipo en el que juega el futbolista.
-Posicion liga fin: Posición en liga en la que queda el jugador con su equipo en la presente temporada.
+Posicion liga ini: Posición en liga en la que queda el jugador con su equipo en la presente temporada.
+Posicion liga fin: Posición en liga en la que queda el equipo (esta temporada) en el que jugará el jugador la proxima temporada.
 Valor equipo ini: Valor del equipo por el que ficha el jugador, el valor es el de la presente temporada.
 Valor equipo fin: Valor del equipo en el que jugará el jugador en la siguiente campaña, el valor es el de la presente temporada.
