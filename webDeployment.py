@@ -100,10 +100,13 @@ if submit_button:
             model = pickle.load(file)
 
         # If both files are loaded, perform the scaling and prediction
-        df[continuas_indices] = scaler.transform(df[continuas_indices])
-        predicted_salary = model.predict(df.drop(columns=['Nombre']).to_numpy())
-
-        st.write(f"El salario estimado que cobra {df['Nombre'].iloc[0]}, es de {round(np.expm1(predicted_salary)[0], 2)} euros.")
+        try:
+            df[continuas_indices] = scaler.transform(df[continuas_indices])
+            predicted_salary = model.predict(df.drop(columns=['Nombre']).to_numpy())
+            
+            st.write(f"El salario estimado que cobra {df['Nombre'].iloc[0]}, es de {round(np.expm1(predicted_salary)[0], 2)} euros.")
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
     except FileNotFoundError as e:
         st.error(f"File not found: {e.filename}")
     except Exception as e:
