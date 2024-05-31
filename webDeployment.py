@@ -88,8 +88,8 @@ if submit_button:
     continuas_indices = [col for col in df.columns if col not in categoricas_indices]
 
     # Load the scaler and model using absolute paths
-    scaler_path = './MinMaxScaler.pkl'
-    model_path = './best_model.pkl'
+    scaler_path = 'web_deploy/MinMaxScaler.pkl'
+    model_path = 'web_deploy/best_model.pkl'
 
     try:
         with open(scaler_path, 'rb') as file:
