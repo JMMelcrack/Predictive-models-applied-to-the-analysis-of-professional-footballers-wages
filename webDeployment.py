@@ -13,7 +13,7 @@ A continuación, actualice las estadísticas como desee y pulse aceptar para obt
 # Initial data
 df = pd.DataFrame(
     [
-       {"Nombre": "Guido Rodríguez", 
+       {"Nombre": "Guido Rodríguez (2022/2023)", 
         "Edad": 28, 
         "Valor liga ini": 3300, 
         "Titularidades": 33,
