@@ -66,7 +66,7 @@ with st.form(key='stats_form'):
 
 # Actualiza el dataframe solo si todos los valores son correctos
 if submit_button:
-    if nombre == '':
+    if not nombre:
         st.error("El campo 'Nombre' no puede estar vacío.")
     else:
         df = pd.DataFrame({
