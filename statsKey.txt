@@ -4,7 +4,7 @@ Jugador: Nombre del futbolista
 Edad: Edad del jugador
 Temporada: Año en el que empieza la temporada a la que pertenecen las estadísticas.
 Posicion: Posición en la que juega, para jugadores que pueden jugar en varias se guarda todas, luego este tipo de jugador se codificará como múltiple posición, independientemente de las posiciones que sean. 
-Valor liga ini: Beneficio de la liga en la que el jugador empieza la temporada, el beneficio se corresponde con el de la actual temporada.
+Valor liga ini: Beneficio de la liga en la que el jugador empieza la temporada, el beneficio se corresponde con el de la actual temporada. Las unidades están en millones.
 Partidos: Número de partidos jugados 
 Titularidades: Número de partidos en los que fue titular
 Minutos: Minutos totales jugados
@@ -68,8 +68,8 @@ Conducciones ultimo tercio: Conducciones que entran en el último tercio de camp
 Conducciones en area: Conducciones que entran en el área rival
 Errores de control: Errores del futbolista al controlar el balón
 Salario semanal: Variable a predecir, salario semanal en euros que cobra el futbolista
-Valor liga fin: Beneficio total de la liga en la que el jugador milita al final de temporada, es decir si ficha por un equipo de otra liga en verano es esa la liga que aparece, el beneficio se corresponde con el de la actual temporada.
+Valor liga fin: Beneficio total de la liga en la que el jugador milita al final de temporada, es decir si ficha por un equipo de otra liga en verano es esa la liga que aparece, el beneficio se corresponde con el de la actual temporada. Las unidades están en millones.
 Posicion liga ini: Posición en liga en la que queda el jugador con su equipo en la presente temporada.
 Posicion liga fin: Posición en liga en la que queda el equipo (esta temporada) en el que jugará el jugador la proxima temporada.
-Valor equipo ini: Valor del equipo por el que ficha el jugador, el valor es el de la presente temporada.
-Valor equipo fin: Valor del equipo en el que jugará el jugador en la siguiente campaña, el valor es el de la presente temporada.
+Valor equipo ini: Valor del equipo por el que ficha el jugador, el valor es el de la presente temporada. Las unidades están en millones.
+Valor equipo fin: Valor del equipo en el que jugará el jugador en la siguiente campaña, el valor es el de la presente temporada. Las unidades están en millones.
