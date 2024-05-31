@@ -15,7 +15,7 @@ df = pd.DataFrame(
     [
        {"Nombre": "Guido Rodríguez", 
         "Edad": 28, 
-        "Valor liga ini": 5260, 
+        "Valor liga ini": 3300, 
         "Titularidades": 33,
         "Minutos": 2872,
         "Penaltis lanzados": 0,
@@ -30,7 +30,7 @@ df = pd.DataFrame(
         "Controles": 1033, 
         "Dist con balon": 3909, 
         "Conducciones ultimo tercio": 14,
-        "Valor liga fin": 5260,
+        "Valor liga fin": 3300,
         "Valor equipo ini": 246.4, 
         "Valor equipo fin": 246.4, 
         "Defensa": False,
