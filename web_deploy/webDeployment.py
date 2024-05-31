@@ -6,27 +6,27 @@ import os
 
 df = pd.DataFrame(
     [
-       {"Nombre": "Declan Rice", 
-        "Edad": 23, 
-        "Valor liga ini": 11320, 
-        "Titularidades": 36,
-        "Minutos": 3273,
+       {"Nombre": "Guido Rodríguez", 
+        "Edad": 28, 
+        "Valor liga ini": 5260, 
+        "Titularidades": 33,
+        "Minutos": 2872,
         "Penaltis lanzados": 0,
-        "xG": 2.4,
-        "Disparos": 35,
-        "Tiros a puerta": 8,
-        "Faltas lanzadas": 1, 
-        "Pases cortos intentados": 944, 
-        "Pases largos completados": 223,
-        "Pases clave": 37,
-        "Toques": 2475,
-        "Controles": 1642, 
-        "Dist con balon": 9170, 
-        "Conducciones ultimo tercio": 76,
-        "Valor liga fin": 11320,
-        "Valor equipo ini": 465.75, 
-        "Valor equipo fin": 1000, 
-        "Defensa": True,
+        "xG": 1.2,
+        "Disparos": 22,
+        "Tiros a puerta": 6,
+        "Faltas lanzadas": 0, 
+        "Pases cortos intentados": 796, 
+        "Pases largos completados": 129,
+        "Pases clave": 11,
+        "Toques": 2064,
+        "Controles": 1033, 
+        "Dist con balon": 3909, 
+        "Conducciones ultimo tercio": 14,
+        "Valor liga fin": 5260,
+        "Valor equipo ini": 246.4, 
+        "Valor equipo fin": 246.4, 
+        "Defensa": False,
         },
    ]
 )
@@ -49,4 +49,4 @@ df[continuas_indices] = scaler.transform(df[continuas_indices])
 df['Defensa'] = (df['Defensa'] == 'True') | (df['Defensa'] == 'true')
 predicted_salary = model.predict(df.drop(columns=['Nombre']).to_numpy())
 
-st.write(f"El salario estimado que cobra {df['Nombre']}, es de {np.expm1(predicted_salary)} euros.")
+st.write(f"El salario estimado que cobra {df['Nombre'].iloc[0]}, es de {round(np.expm1(predicted_salary)[0], 2)} euros.")
