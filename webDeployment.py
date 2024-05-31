@@ -42,7 +42,6 @@ df = pd.DataFrame(
 with st.form(key='stats_form'):
     nombre = st.text_input('Nombre', df['Nombre'][0], help='Nombre del jugador')
     edad = st.number_input('Edad', value=df['Edad'][0], help='Edad del jugador')
-    valor_liga_ini = st.number_input('Valor liga ini', value=df['Valor liga ini'][0], help='Beneficio de la liga en la que el jugador empieza la temporada, el beneficio se corresponde con el de la actual temporada. Las unidades están en millones.')
     titularidades = st.number_input('Titularidades', value=df['Titularidades'][0], help='Número de partidos en los que fue titular')
     minutos = st.number_input('Minutos', value=df['Minutos'][0], help='Número de Minutos totales jugados')
     penaltis_lanzados = st.number_input('Penaltis lanzados', value=df['Penaltis lanzados'][0], help='Total penaltis intentados, incluye marcados y fallados')
@@ -57,7 +56,8 @@ with st.form(key='stats_form'):
     controles = st.number_input('Controles', value=df['Controles'][0], help='Veces que el jugador controló el balón')
     dist_con_balon = st.number_input('Dist con balon', value=df['Dist con balon'][0], help='Distancia total de los desplazamientos del jugador con balón en yardas')
     conducciones_ultimo_tercio = st.number_input('Conducciones ultimo tercio', value=df['Conducciones ultimo tercio'][0], help='Conducciones que entran en el último tercio del campo')
-    valor_liga_fin = st.number_input('Valor liga fin', value=df['Valor liga fin'][0], help='Beneficio total de la liga en la que el jugador milita al final de temporada, es decir si ficha por un equipo de otra liga en verano es esa la liga que aparece, el beneficio se corresponde con el de la actual temporada. Las unidades están en millones.')
+    valor_liga_ini = st.number_input('Beneficio liga ini', value=df['Valor liga ini'][0], help='Beneficio de la liga en la que el jugador empieza la temporada, el beneficio se corresponde con el de la actual temporada. Las unidades están en millones.')
+    valor_liga_fin = st.number_input('Beneficio liga fin', value=df['Valor liga fin'][0], help='Beneficio total de la liga en la que el jugador milita al final de temporada, es decir si ficha por un equipo de otra liga en verano es esa la liga que aparece, el beneficio se corresponde con el de la actual temporada. Las unidades están en millones.')
     valor_equipo_ini = st.number_input('Valor equipo ini', value=df['Valor equipo ini'][0], help='Valor del equipo por el que juega el jugador en la presente temporada, el valor es el de la temporada actual. Las unidades están en millones.')
     valor_equipo_fin = st.number_input('Valor equipo fin', value=df['Valor equipo fin'][0], help='Valor del equipo en el que jugará el jugador en la siguiente campaña, el valor es el de la presente temporada. Las unidades están en millones.')
     defensa = st.checkbox('Defensa', value=df['Defensa'][0], help='Indica si el jugador es defensor')
