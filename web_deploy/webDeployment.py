@@ -4,6 +4,7 @@ import pickle
 import numpy as np
 import os
 
+# Initial data
 df = pd.DataFrame(
     [
        {"Nombre": "Guido Rodríguez", 
@@ -30,23 +31,80 @@ df = pd.DataFrame(
         },
    ]
 )
-edited_df = st.data_editor(df.transpose(), height=770, width=400)
-df = edited_df.transpose()
 
-# Prepare to scale the data
-categoricas_indices = ['Nombre', 'Defensa']
-continuas_indices = [col for col in df.columns if col not in categoricas_indices]
+# Create a form for user input with tooltips
+with st.form(key='stats_form'):
+    nombre = st.text_input('Nombre', df['Nombre'][0], help='Nombre del jugador')
+    edad = st.number_input('Edad', value=df['Edad'][0], help='Edad del jugador')
+    valor_liga_ini = st.number_input('Valor liga ini', value=df['Valor liga ini'][0], help='Beneficio de la liga en la que el jugador empieza la temporada, el beneficio se corresponde con el de la actual temporada.')
+    titularidades = st.number_input('Titularidades', value=df['Titularidades'][0], help='Número de partidos en los que fue titular')
+    minutos = st.number_input('Minutos', value=df['Minutos'][0], help='Número de Minutos totales jugados')
+    penaltis_lanzados = st.number_input('Penaltis lanzados', value=df['Penaltis lanzados'][0], help='Total penaltis intentados, incluye marcados y fallados')
+    xG = st.number_input('xG', value=df['xG'][0], help='Número de goles que el jugador debería haber marcado en realidad (expected goals)')
+    disparos = st.number_input('Disparos', value=df['Disparos'][0], help='Total de disparos efectuados por el jugador')
+    tiros_a_puerta = st.number_input('Tiros a puerta', value=df['Tiros a puerta'][0], help='Disparos que van entre los tres palos')
+    faltas_lanzadas = st.number_input('Faltas lanzadas', value=df['Faltas lanzadas'][0], help='Número de faltas lanzadas')
+    pases_cortos_intentados = st.number_input('Pases cortos intentados', value=df['Pases cortos intentados'][0], help='Pases entre 5 y 15 yardas intentados')
+    pases_largos_completados = st.number_input('Pases largos completados', value=df['Pases largos completados'][0], help='Pases de más de 30 yardas completados')
+    pases_clave = st.number_input('Pases clave', value=df['Pases clave'][0], help='Número de pases que conducen a un disparo dados')
+    toques = st.number_input('Toques', value=df['Toques'][0], help='Número de veces que el jugador toca el balón')
+    controles = st.number_input('Controles', value=df['Controles'][0], help='Veces que el jugador controló el balón')
+    dist_con_balon = st.number_input('Dist con balon', value=df['Dist con balon'][0], help='Distancia total de los desplazamientos del jugador con balón en yardas')
+    conducciones_ultimo_tercio = st.number_input('Conducciones ultimo tercio', value=df['Conducciones ultimo tercio'][0], help='Conducciones que entran en el último tercio del campo')
+    valor_liga_fin = st.number_input('Valor liga fin', value=df['Valor liga fin'][0], help='Beneficio total de la liga en la que el jugador milita al final de temporada, es decir si ficha por un equipo de otra liga en verano es esa la liga que aparece, el beneficio se corresponde con el de la actual temporada')
+    valor_equipo_ini = st.number_input('Valor equipo ini', value=df['Valor equipo ini'][0], help='Valor del equipo por el que juega el jugador en la presente temporada, el valor es el de la temporada actual')
+    valor_equipo_fin = st.number_input('Valor equipo fin', value=df['Valor equipo fin'][0], help='Valor del equipo en el que jugará el jugador en la siguiente campaña, el valor es el de la presente temporada')
+    defensa = st.checkbox('Defensa', value=df['Defensa'][0], help='Indica si el jugador es defensor')
 
-# Load the scaler to transform the data and the ML model to make the predictions
-with open('./MinMaxScaler.pkl', 'rb') as file:
-    scaler = pickle.load(file)
+    submit_button = st.form_submit_button(label='Aceptar')
 
-with open('./best_model.pkl', 'rb') as file:
-    model = pickle.load(file)
+# Update the DataFrame with the new values
+if submit_button:
+    df = pd.DataFrame({
+        "Nombre": [nombre], 
+        "Edad": [edad], 
+        "Valor liga ini": [valor_liga_ini], 
+        "Titularidades": [titularidades],
+        "Minutos": [minutos],
+        "Penaltis lanzados": [penaltis_lanzados],
+        "xG": [xG],
+        "Disparos": [disparos],
+        "Tiros a puerta": [tiros_a_puerta],
+        "Faltas lanzadas": [faltas_lanzadas], 
+        "Pases cortos intentados": [pases_cortos_intentados], 
+        "Pases largos completados": [pases_largos_completados],
+        "Pases clave": [pases_clave],
+        "Toques": [toques],
+        "Controles": [controles], 
+        "Dist con balon": [dist_con_balon], 
+        "Conducciones ultimo tercio": [conducciones_ultimo_tercio],
+        "Valor liga fin": [valor_liga_fin],
+        "Valor equipo ini": [valor_equipo_ini], 
+        "Valor equipo fin": [valor_equipo_fin], 
+        "Defensa": [defensa],
+    })
 
-# If both files are loaded, perform the scaling and prediction
-df[continuas_indices] = scaler.transform(df[continuas_indices])
-df['Defensa'] = (df['Defensa'] == 'True') | (df['Defensa'] == 'true')
-predicted_salary = model.predict(df.drop(columns=['Nombre']).to_numpy())
+    # Prepare to scale the data
+    categoricas_indices = ['Nombre', 'Defensa']
+    continuas_indices = [col for col in df.columns if col not in categoricas_indices]
 
-st.write(f"El salario estimado que cobra {df['Nombre'].iloc[0]}, es de {round(np.expm1(predicted_salary)[0], 2)} euros.")
+    # Load the scaler and model using absolute paths
+    scaler_path = './MinMaxScaler.pkl'
+    model_path = './best_model.pkl'
+
+    try:
+        with open(scaler_path, 'rb') as file:
+            scaler = pickle.load(file)
+
+        with open(model_path, 'rb') as file:
+            model = pickle.load(file)
+
+        # If both files are loaded, perform the scaling and prediction
+        df[continuas_indices] = scaler.transform(df[continuas_indices])
+        predicted_salary = model.predict(df.drop(columns=['Nombre']).to_numpy())
+
+        st.write(f"El salario estimado que cobra {df['Nombre'].iloc[0]}, es de {round(np.expm1(predicted_salary)[0], 2)} euros.")
+    except FileNotFoundError as e:
+        st.error(f"File not found: {e.filename}")
+    except Exception as e:
+        st.error(f"An error occurred: {e}")
