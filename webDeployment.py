@@ -3,6 +3,13 @@ import pandas as pd
 import pickle
 import numpy as np
 
+# Set the title and description of the web app
+st.title("FindTheSalary")
+st.write("""
+Esta aplicación estima el salario de un futbolista basándose en distintas estadísticas.
+A continuación, actualice las estadísticas como desee y pulse aceptar para obtener el salario estimado.
+""")
+
 # Initial data
 df = pd.DataFrame(
     [
