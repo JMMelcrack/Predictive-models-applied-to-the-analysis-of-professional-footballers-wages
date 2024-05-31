@@ -89,8 +89,8 @@ if submit_button:
     continuas_indices = [col for col in df.columns if col not in categoricas_indices]
 
     # Load the scaler and model using absolute paths
-    scaler_path = 'web_deploy/MinMaxScaler.pkl'
-    model_path = 'web_deploy/best_model.pkl'
+    scaler_path = './MinMaxScaler.pkl'
+    model_path = './best_model.pkl'
 
     try:
         with open(scaler_path, 'rb') as file:
@@ -100,13 +100,10 @@ if submit_button:
             model = pickle.load(file)
 
         # If both files are loaded, perform the scaling and prediction
-        try:
-            df[continuas_indices] = scaler.transform(df[continuas_indices])
-            predicted_salary = model.predict(df.drop(columns=['Nombre']).to_numpy())
-            
-            st.write(f"El salario estimado que cobra {df['Nombre'].iloc[0]}, es de {round(np.expm1(predicted_salary)[0], 2)} euros.")
-        except Exception as e:
-            st.error(f"An error occurred: {e}")
+        df[continuas_indices] = scaler.transform(df[continuas_indices])
+        predicted_salary = model.predict(df.drop(columns=['Nombre']).to_numpy())
+
+        st.write(f"El salario estimado que cobra {df['Nombre'].iloc[0]}, es de {round(np.expm1(predicted_salary)[0], 2)} euros.")
     except FileNotFoundError as e:
         st.error(f"File not found: {e.filename}")
     except Exception as e:
