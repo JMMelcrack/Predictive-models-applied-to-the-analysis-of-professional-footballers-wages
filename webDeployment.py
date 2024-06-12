@@ -28,7 +28,7 @@ df = pd.DataFrame(
         "Pases clave": 11,
         "Toques": 2064,
         "Controles": 1033,
-        "Dist con balon": 3909.0,
+        "Dist con balon": 3574.39,
         "Conducciones ultimo tercio": 14,
         "Valor liga fin": 3300.0,
         "Valor equipo ini": 246.4,
@@ -43,28 +43,30 @@ with st.form(key='stats_form'):
     nombre = st.text_input('Nombre', df['Nombre'][0], help='Nombre del jugador')
     edad = st.number_input('Edad', value=int(df['Edad'][0]), min_value=0, help='Edad del jugador')
     titularidades = st.number_input('Titularidades', value=int(df['Titularidades'][0]), min_value=0, help='Número de partidos en los que fue titular')
-    minutos = st.number_input('Minutos', value=int(df['Minutos'][0]), min_value=0, help='Número de Minutos totales jugados')
-    penaltis_lanzados = st.number_input('Penaltis lanzados', value=int(df['Penaltis lanzados'][0]), min_value=0, help='Total penaltis intentados, incluye marcados y fallados')
-    xG = st.number_input('xG', value=float(df['xG'][0]), min_value=0.0, help='Número de goles que el jugador debería haber marcado en realidad (expected goals)')
-    disparos = st.number_input('Disparos', value=int(df['Disparos'][0]), min_value=0, help='Total de disparos efectuados por el jugador')
-    tiros_a_puerta = st.number_input('Tiros a puerta', value=int(df['Tiros a puerta'][0]), min_value=0, help='Disparos que van entre los tres palos')
-    faltas_lanzadas = st.number_input('Faltas lanzadas', value=int(df['Faltas lanzadas'][0]), min_value=0, help='Número de faltas lanzadas')
-    pases_cortos_intentados = st.number_input('Pases cortos intentados', value=int(df['Pases cortos intentados'][0]), min_value=0, help='Pases entre 5 y 15 yardas intentados')
-    pases_largos_completados = st.number_input('Pases largos completados', value=int(df['Pases largos completados'][0]), min_value=0, help='Pases de más de 30 yardas completados')
-    pases_clave = st.number_input('Pases clave', value=int(df['Pases clave'][0]), min_value=0, help='Número de pases que conducen a un disparo dados')
-    toques = st.number_input('Toques', value=int(df['Toques'][0]), min_value=0, help='Número de veces que el jugador toca el balón')
-    controles = st.number_input('Controles', value=int(df['Controles'][0]), min_value=0, help='Veces que el jugador controló el balón')
-    dist_con_balon = st.number_input('Dist con balon', value=float(df['Dist con balon'][0]), min_value=0.0, help='Distancia total de los desplazamientos del jugador con balón en yardas')
-    conducciones_ultimo_tercio = st.number_input('Conducciones ultimo tercio', value=int(df['Conducciones ultimo tercio'][0]), min_value=0, help='Conducciones que entran en el último tercio del campo')
-    valor_liga_ini = st.number_input('Beneficio liga ini', value=float(df['Valor liga ini'][0]), min_value=0.0, help='Beneficio de la liga en la que el jugador empieza la temporada, el beneficio se corresponde con el de la actual temporada. Las unidades están en millones.')
-    valor_liga_fin = st.number_input('Beneficio liga fin', value=float(df['Valor liga fin'][0]), min_value=0.0, help='Beneficio total de la liga en la que el jugador milita al final de temporada, es decir si ficha por un equipo de otra liga en verano es esa la liga que aparece, el beneficio se corresponde con el de la actual temporada. Las unidades están en millones.')
-    valor_equipo_ini = st.number_input('Valor equipo ini', value=float(df['Valor equipo ini'][0]), min_value=0.0, help='Valor del equipo por el que juega el jugador en la presente temporada, el valor es el de la temporada actual. Las unidades están en millones.')
-    valor_equipo_fin = st.number_input('Valor equipo fin', value=float(df['Valor equipo fin'][0]), min_value=0.0, help='Valor del equipo en el que jugará el jugador en la siguiente campaña, el valor es el de la presente temporada. Las unidades están en millones.')
+    minutos = st.number_input('Minutos', value=int(df['Minutos'][0]), min_value=0, help='Número de minutos totales jugados en toda la temporada')
+    penaltis_lanzados = st.number_input('Penaltis lanzados', value=int(df['Penaltis lanzados'][0]), min_value=0, help='Total penaltis intentados en toda la temporada, incluye marcados y fallados')
+    xG = st.number_input('xG', value=float(df['xG'][0]), min_value=0.0, help='Número de goles que el jugador debería haber marcado en realidad en toda la temporada (expected goals)')
+    disparos = st.number_input('Disparos', value=int(df['Disparos'][0]), min_value=0, help='Total de disparos efectuados por el jugador en toda la temporada')
+    tiros_a_puerta = st.number_input('Tiros a puerta', value=int(df['Tiros a puerta'][0]), min_value=0, help='Disparos que van entre los tres palos en toda la temporada')
+    faltas_lanzadas = st.number_input('Faltas lanzadas', value=int(df['Faltas lanzadas'][0]), min_value=0, help='Número de faltas lanzadas en toda la temporada')
+    pases_cortos_intentados = st.number_input('Pases cortos intentados', value=int(df['Pases cortos intentados'][0]), min_value=0, help='Pases entre 4.6 y 13.7 metros intentados en toda la temporada')
+    pases_largos_completados = st.number_input('Pases largos completados', value=int(df['Pases largos completados'][0]), min_value=0, help='Pases de más de 27.4 metros completados en toda la temporada')
+    pases_clave = st.number_input('Pases clave', value=int(df['Pases clave'][0]), min_value=0, help='Número de pases que conducen a un disparo dados en toda la temporada')
+    toques = st.number_input('Toques', value=int(df['Toques'][0]), min_value=0, help='Número de veces que el jugador toca el balón en toda la temporada')
+    controles = st.number_input('Controles', value=int(df['Controles'][0]), min_value=0, help='Veces que el jugador controló el balón en toda la temporada')
+    dist_con_balon = st.number_input('Dist con balon', value=float(df['Dist con balon'][0]), min_value=0.0, help='Distancia total de los desplazamientos del jugador con balón en metros en toda la temporada')
+    conducciones_ultimo_tercio = st.number_input('Conducciones ultimo tercio', value=int(df['Conducciones ultimo tercio'][0]), min_value=0, help='Conducciones que entran en el último tercio del campo en toda la temporada')
+    valor_liga_ini = st.number_input('Beneficio liga ini', value=float(df['Valor liga ini'][0]), min_value=0.0, help='Beneficio de la liga en la que el jugador empieza la temporada, el beneficio se corresponde con el de la actual temporada. Las unidades están en millones de euros.')
+    valor_liga_fin = st.number_input('Beneficio liga fin', value=float(df['Valor liga fin'][0]), min_value=0.0, help='Beneficio total de la liga en la que el jugador milita al final de temporada, es decir si ficha por un equipo de otra liga en verano es esa la liga que aparece, el beneficio se corresponde con el de la actual temporada. Las unidades están en millones de euros.')
+    valor_equipo_ini = st.number_input('Valor equipo ini', value=float(df['Valor equipo ini'][0]), min_value=0.0, help='Valor del equipo por el que juega el jugador en la presente temporada, el valor es el de la temporada actual. Las unidades están en millones de euros.')
+    valor_equipo_fin = st.number_input('Valor equipo fin', value=float(df['Valor equipo fin'][0]), min_value=0.0, help='Valor del equipo en el que jugará el jugador en la siguiente campaña, el valor es el de la presente temporada. Las unidades están en millones de euros.')
     defensa = st.checkbox('Defensa', value=df['Defensa'][0], help='Indica si el jugador es defensor')
 
     submit_button = st.form_submit_button(label='Aceptar')
 
 # Update the DataFrame with the new values if form is submitted
+metro2yarda = 1.094 # Para pasar los inputs de metros a yardas
+
 if submit_button:
     if not nombre:
         st.error("El campo 'Nombre' no puede estar vacío.")
@@ -85,7 +87,7 @@ if submit_button:
             "Pases clave": [pases_clave],
             "Toques": [toques],
             "Controles": [controles], 
-            "Dist con balon": [dist_con_balon], 
+            "Dist con balon": [dist_con_balon*metro2yarda], 
             "Conducciones ultimo tercio": [conducciones_ultimo_tercio],
             "Valor liga fin": [valor_liga_fin],
             "Valor equipo ini": [valor_equipo_ini], 
